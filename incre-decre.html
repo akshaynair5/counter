@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Incrementer</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+      }
+      html {
+        display: table;
+        margin: auto;
+      }
+      body {
+        background-color: gainsboro;
+        display: table-cell;
+        vertical-align: middle;
+      }
+      .main {
+        display: flex;
+        /* background-color: black; */
+        border-radius: 15px;
+      }
+      button {
+        height: 80px;
+        width: 80px;
+        border-color: azure;
+        border-radius: 10px;
+        background-color: brown;
+      }
+
+      .Clear button {
+        height: 80px;
+        width: 80px;
+      }
+      .Clear button:hover {
+        height: 80px;
+        width: 80px;
+        background-color: blueviolet;
+        border-color: rgb(174, 237, 237);
+        border-radius: 10px;
+      }
+      .display {
+        font-size: xx-large;
+        font-style: italic;
+        font-weight: 200;
+        background-color: gainsboro;
+        text-align: center;
+        /* justify-content: center; */
+      }
+      button:hover {
+        height: 80px;
+        width: 80px;
+        background-color: blueviolet;
+        border-color: rgb(174, 237, 237);
+        border-radius: 10px;
+        transition: 0.5s;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <div class="incre">
+        <button id="inc">+</button>
+      </div>
+      <div class="display" style="margin-right: 20px; margin-left: 20px">0</div>
+      <div class="decre">
+        <button id="decre1">-</button>
+      </div>
+      <div class="Clear" id="cl">
+        <button id="cle">Clear</button>
+      </div>
+    </div>
+
+    <!-- <script>
+      let num = document.querySelector(".display");
+      let counter = 0;
+      function incrementer() {
+        counter++;
+        num.innerText = counter;
+        console.log(counter);
+      }
+      function decrementer() {
+        if (counter == 0) {
+          alert("Counter is Already at 0");
+        } else {
+          counter--;
+          num.innerText = counter;
+          console.log(counter);
+        }
+      }
+      function clear() {
+        counter = counter - counter;
+        console.log(counter);
+        num.innerText = counter;
+      }
+    </script> -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        let counter = 0;
+        $("#cle").on("click", function () {
+          counter = counter - counter;
+          $(".display").text(counter);
+        });
+        $("#inc").on("click", function () {
+          $(".display").text(counter);
+          counter++;
+        });
+        $("#decre1").on("click", function () {
+          if (counter <= 0) {
+            alert("Counter is already at zero");
+            counter = counter - counter;
+          }
+          $(".display").text(counter);
+          counter = counter - 1;
+          // console.log(counter);
+        });
+      });
+    </script>
+  </body>
+</html>
